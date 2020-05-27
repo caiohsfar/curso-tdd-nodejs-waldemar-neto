@@ -1,0 +1,36 @@
+{
+  "name": "clean-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "npm run build && node dist/server.js",
+    "start:dev": "babel-node src/server.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:integration": "NODE_ENV=test jest --colors --watchAll -c jest.integration.config.js",
+    "test:unit": "NODE_ENV=test jest --colors --watchAll -c jest.unit.config.js",
+    "test:ci": "NODE_ENV=test jest --colors --coverage -c",
+    "test:all": "npm run test:unit && npm run test:integration"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^25.2.1",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "jest": "^25.5.3",
+    "mongoose": "^5.9.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "@types/sinon": "^9.0.0",
+    "babel-jest": "^25.5.1",
+    "sinon": "^9.0.2",
+    "supertest": "^4.0.2"
+  }
+}
